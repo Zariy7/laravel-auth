@@ -5,8 +5,8 @@
     <h2 class="fs-4 text-secondary my-4">
         {{ __('Dashboard') }}
     </h2>
-    <div class="row justify-content-center">
-        <div class="col">
+    <div class="row justify-content-center g-3">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header">{{ __('User Dashboard') }}</div>
 
@@ -19,7 +19,11 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+
             </div>
+        </div>
+        <div class="col-12">
+            <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">Projects</a>
         </div>
     </div>
 </div>
