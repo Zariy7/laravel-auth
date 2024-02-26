@@ -28,9 +28,14 @@
                                 <a href=" {{ route('admin.projects.update', $project->id) }} " class="btn btn-warning">
                                     <i class="fa-solid fa-gear"></i>
                                 </a>
-                                <a href=" {{ route('admin.projects.destroy', $project->id) }} " class="btn btn-danger">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
+
+                                <form action="{{ route('admin.projects.destroy', $project->id)}}" method="POST" onsubmit="return confirm('Do you want to remove this project from the database?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>                            
                         @endforeach

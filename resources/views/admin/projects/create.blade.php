@@ -23,7 +23,18 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <form action="{{ route('admin.projects.store', $project->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                        <label for="title" class="form-label">Project Title:</label>
+                        <input type="text" name="title" id="title">
+                        <label for="description" class="form-label">Project Description:</label>
+                        <input type="text" name="description" id="description">
+                        <label for="stack" class="form-label">Project Stack</label>
+                        <input type="text" name="stack" id="stack">
 
+                    <input type="submit" class="btn btn-sm btn-primary" value="Add!">
+                </form>
             </div>
         </div>
     </div>
