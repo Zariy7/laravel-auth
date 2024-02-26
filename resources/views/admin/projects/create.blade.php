@@ -32,13 +32,12 @@
                     </ul>
                 </div>
                 @endif
-                <form action="{{ route('admin.projects.store', $project->id) }}" method="POST">
+                <form action="{{ route('admin.projects.store') }}" method="POST">
                     @csrf
-                    @method('PUT')
                         <label for="title" class="form-label">Project Title:</label>
                         <input type="text" name="title" id="title">
-                        <label for="description" class="form-label">Project Description:</label>
-                        <input type="text" name="description" id="description">
+                        <label for="desc" class="form-label">Project Description:</label>
+                        <input type="text" name="desc" id="desc">
                         <label for="stack" class="form-label">Project Stack</label>
                         <input type="text" name="stack" id="stack">
 

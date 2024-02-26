@@ -25,7 +25,7 @@
                                 <a href=" {{ route('admin.projects.show', $project->id) }} " class="btn btn-success">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
-                                <a href=" {{ route('admin.projects.update', $project->id) }} " class="btn btn-warning">
+                                <a href=" {{ route('admin.projects.edit', $project->id) }} " class="btn btn-warning">
                                     <i class="fa-solid fa-gear"></i>
                                 </a>
 

@@ -84,7 +84,7 @@ class ProjectController extends Controller
         $data = $request->all();
 
         $project->slug = implode('-', explode(' ', strtolower($project->title)));
-        $data->slug = $project->slug;
+        $data['slug'] = $project->slug;
         $project->update($data);
 
         return redirect()->route('admin.projects.show', $project->id);    
