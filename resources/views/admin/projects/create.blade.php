@@ -32,14 +32,24 @@
                     </ul>
                 </div>
                 @endif
-                <form action="{{ route('admin.projects.store') }}" method="POST">
+                <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <div class="form-group mb-3">
+                        <label for="image">Project Image:</label>
+                        <input type="file" name="image" id="image" class="form-control" accept="image/*">
+                    </div>
+                    <div>
                         <label for="title" class="form-label">Project Title:</label>
                         <input type="text" name="title" id="title">
+                    </div>
+                    <div>
                         <label for="desc" class="form-label">Project Description:</label>
                         <input type="text" name="desc" id="desc">
+                    </div>
+                    <div>
                         <label for="stack" class="form-label">Project Stack</label>
                         <input type="text" name="stack" id="stack">
+                    </div>
 
                     <input type="submit" class="btn btn-sm btn-primary" value="Add!">
                 </form>

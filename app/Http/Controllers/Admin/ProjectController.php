@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller as Controller;
 
 class ProjectController extends Controller
@@ -41,9 +43,14 @@ class ProjectController extends Controller
     {
         $data = $request->all();
 
+        if($request->hasFile('image')){
+            $image_path = Storage::disk('public')->put('project_images', $data['image']);
+            $data['image'] = $image_path;
+        }
+
         $newProject = new Project();
         $newProject->fill($data);
-        $newProject->slug = implode('-', explode(' ', strtolower($newProject->title)));
+        $newProject->slug = Str::slug($newProject->title, '-');
 
         $newProject->save();
 
@@ -83,7 +90,16 @@ class ProjectController extends Controller
     {
         $data = $request->all();
 
-        $project->slug = implode('-', explode(' ', strtolower($project->title)));
+        if($request->hasFile('image')){
+            if($project->image != null){
+                Storage::disk('public')->delete($project->image);
+            }
+
+            $image_path = Storage::disk('public')->put('project_images', $data['image']);
+            $data['image'] = $image_path;
+        }
+
+        $project->slug = Str::slug($project->title, '-');
         $data['slug'] = $project->slug;
         $project->update($data);
 
@@ -98,6 +114,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if($project->image != null){
+            Storage::disk('public')->delete($project->image);
+        }
+
         $project->delete();
 
         return redirect()->route('admin.projects.index');

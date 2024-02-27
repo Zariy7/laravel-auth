@@ -23,6 +23,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @if($project->image != null)
+                <div>
+                    <img src="{{ asset('storage/'.$project->image)}}">
+                </div>
+                @endif
                 <div>
                     Project Id: {{$project->id}}
                 </div>

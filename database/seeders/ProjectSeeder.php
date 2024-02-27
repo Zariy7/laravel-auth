@@ -20,7 +20,7 @@ class ProjectSeeder extends Seeder
             $newProject = new Project();
 
             $newProject->title = $faker->words(3, true);
-            $newProject->slug = implode('-', explode(' ', strtolower($newProject->title)));
+            $newProject->slug = Str::slug($newProject->title, '-');
             $newProject->stack = implode('/', explode(' ', $faker->words(5,true)));
             $newProject->desc = $faker->text(150);
 
