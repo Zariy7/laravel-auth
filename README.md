@@ -25,3 +25,9 @@ Buon lavoro!
 @qui Ciao a tutti,
 continuate con l'esercizio di ieri (stessa repo) facendo le crud rimanenti. Per la cancellazione è considerato esercizio base se la fate con la confirm all'onsubmit.
 BONUS: create una modale con cui chiedere conferma della cancellazione. Scegliete uno dei due metodi per visti a lezione.
+
+Esercizio di oggi:
+Laravel Boolfolio - Cover Image
+nome repo: [laravel-auth]
+Ciao ragazzi, continuiamo a lavorare nella repo dei giorni scorsi e aggiungiamo un’immagine ai nostri progetti. Ricordiamoci di creare il symlink con l’apposito comando artisan e di aggiungere l’attributo enctype="multipart/form-data" ai form di creazione e di modifica!
+Buon lavoro e buon divertimento!

@@ -24,6 +24,9 @@ class ProjectSeeder extends Seeder
             $newProject->stack = implode('/', explode(' ', $faker->words(5,true)));
             $newProject->desc = $faker->text(150);
 
+            $names=explode(' ', $newProject->title);
+            $newProject->image=$faker->imageUrl(360, 360, $names[0], true, $names[1], true);
+
             $newProject->save();
         }
     }
